@@ -41,6 +41,21 @@ app.get("/api/tables", function(req, res) {
   res.json(tables);
 });
 
+app.post('/api/tables', function(req, res){
+	// console.log(req.body);
+	var data = false;
+	if (tables.length < 5){
+		tables.push(req.body);
+		data = true;
+		res.send(data);
+	} else {
+		waitlist.push(req.body);
+		data = false;
+		res.send(data);
+	}
+	
+});
+
 
 
 
